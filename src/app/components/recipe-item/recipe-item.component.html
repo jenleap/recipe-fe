@@ -1,0 +1,14 @@
+<div class="list-group-item d-flex justify-content-between mb-1" routerLink="/recipe/{{recipe._id}}">
+    <div>
+        <h4 class="list-group-item-heading">{{recipe.name}}</h4>
+        <p class="list-group-item-text">{{recipe.description}}</p>
+    </div>
+    <span *ngIf="recipe.image.length > 0; else defaultImage">
+        <img [src]="recipe.image" alt="recipe.name">
+    </span>
+    <ng-template #defaultImage>
+        <span>
+            <i class="fas fa-utensils"></i>
+        </span>
+    </ng-template>
+</div>

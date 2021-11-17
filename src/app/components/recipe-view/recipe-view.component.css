@@ -1,0 +1,23 @@
+h1 {
+    background-color: rgba(255, 255, 255, 0.7);;
+    padding: 10px;
+    font-weight: 300;
+}
+
+.jumbotron {
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    height: 400px;
+}
+
+p {
+    font-style: italic;
+}
+
+.step-num {
+    font-family: serif;
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-right: 20px;
+}

@@ -1,0 +1,11 @@
+<span *ngIf="!editMode; else inputBox">
+    {{ itemText }}
+</span>
+
+<ng-template #inputBox>
+    <input 
+        class="form-control"
+        type="{{inputType}}"
+        [(ngModel)]="itemText" 
+        (ngModelChange)="onChanged()" />
+</ng-template>

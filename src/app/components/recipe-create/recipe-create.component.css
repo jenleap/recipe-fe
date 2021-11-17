@@ -1,0 +1,15 @@
+input[type="file"] {
+    visibility: hidden;
+}
+
+.image-preview {
+    max-width: 200px;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+p {
+    font-style: italic;
+}

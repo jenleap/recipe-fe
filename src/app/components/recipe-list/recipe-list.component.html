@@ -1,0 +1,8 @@
+<div class="row mb-3">
+    <button mat-button routerLink="/create-recipe">New Recipe</button>
+</div>
+<div>
+    <div *ngFor="let recipe of recipes">
+        <app-recipe-item [recipe]="recipe"></app-recipe-item>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-between main-container">
+    <div>
+        <app-input-toggle [(itemText)]="food.weight.amount" [editMode]="editMode" (inputChanged)="updateAmount($event)"></app-input-toggle>
+        <app-input-toggle [(itemText)]="food.weight.measure" [editMode]="editMode" (inputChanged)="updateMeasure($event)"></app-input-toggle>
+        <app-input-toggle [(itemText)]="food.name" [editMode]="editMode" (inputChanged)="updateName($event)"></app-input-toggle>
+    </div>
+    <div *ngIf="!editMode; else saveBox" class="hoverDisplay">
+        <i class="fas fa-edit" (click)="onEdit()"></i>
+        <i class="fas fa-window-close ml-3" (click)="onDelete()"></i>
+    </div>
+    <ng-template #saveBox>
+        <div>
+            <i class="fas fa-save" (click)="onSave()"></i>
+        </div>
+    </ng-template>
+</div>

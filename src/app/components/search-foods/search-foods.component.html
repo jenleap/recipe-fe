@@ -1,0 +1,35 @@
+<i class="fas fa-window-close float-right" (click)="close($event)"></i>
+<mat-dialog-content class="mat-typography">
+        <form (submit)="onSearch(searchDbForm)" #searchDbForm="ngForm">
+            <mat-form-field>
+                <input 
+                    matInput 
+                    ngModel
+                    name="query"
+                    type="text" 
+                    required
+                    #query="ngModel"
+                    placeholder="Search..."/>
+                <mat-error *ngIf="query.invalid">Please enter a search term.</mat-error>
+            </mat-form-field>
+            <button 
+                class="ml-2"
+                mat-raised-button 
+                color="primary"
+                type="submit">Search</button>
+        </form>
+    <app-foods-list 
+        [data]="data" 
+        [index]="selectedIndex" 
+        [foods]="foods"
+        (foodAdded)="close($event)">
+    </app-foods-list> 
+    <hr *ngIf="foods.length > 0"/>
+    <mat-paginator *ngIf="totalFoods > 0"
+        [length]="totalFoods"
+        [pageSize]="foodsPerPage"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="onPageChanged($event)"
+    >
+    </mat-paginator>   
+</mat-dialog-content>

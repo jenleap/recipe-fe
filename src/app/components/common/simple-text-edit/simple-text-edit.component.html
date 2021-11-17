@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-between main-container">
+    <div>
+        <app-input-toggle [(itemText)]="itemText" [editMode]="editMode" (inputChanged)="onChange($event)"></app-input-toggle>
+    </div>
+    <div *ngIf="!editMode; else saveBox" class="hoverDisplay">
+        <i class="fas fa-edit" (click)="onEdit()"></i>
+        <i class="fas fa-window-close ml-3" (click)="onDelete()"></i>
+    </div>
+    <ng-template #saveBox>
+        <div>
+            <i class="fas fa-save" (click)="onSave()"></i>
+        </div>
+    </ng-template>
+</div>

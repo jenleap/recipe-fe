@@ -1,0 +1,69 @@
+<div *ngIf="recipe">
+    <div class="d-flex justify-content-end mb-3">
+        <button mat-button (click)="addToLog()">Add Serving to Log</button>
+        <button mat-button routerLink="/edit-recipe/{{id}}">Edit</button>
+    </div>
+    <div class="row">
+        <div class="col-9">
+            <div class="jumbotron jumbotron-fluid" [ngStyle]="{ 'background-image': getImageUrl() }">
+                <h1 class="display-6">{{ recipe.name }}</h1>
+            </div>
+            <div class="row">
+                <div *ngIf="recipe.servings > 0">
+                    <span>Yield: </span>
+                    <span>{{ recipe.servings }} servings</span>
+                </div>
+            </div>
+            <div class="row">
+                <p> {{ recipe.description }}</p>
+            </div>
+            <div class="row mt-4">
+                <div *ngIf="recipe.ingredients.length > 0">
+                    <h5>Ingredients:</h5>
+                    <ul class="list-group list-group-flush">
+                        <li *ngFor="let i of recipe.ingredients" 
+                            class="list-group-item">
+                            {{ i.weight.amount }}
+                            {{ i.weight.measure }}
+                            {{ i.name }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <div *ngIf="recipe.steps.length > 0">
+                        <h5>Instructions:</h5>
+                        <ol class="list-group list-group-flush">
+                            <li *ngFor="let step of recipe.steps; let i = index"
+                                class="list-group-item">
+                                <span class="step-num">{{ i + 1 }}</span>
+                                <span class="step">{{ step }}</span>
+                            </li>
+                        </ol>
+                    </div>
+                    
+                </div>
+            </div>    
+        </div>
+        <div class="col-3">
+            <div class="card" *ngIf="recipe.ingredients.length > 0">
+                <div class="card-header">Nutrition</div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      Calories {{ recipeTotals.calories }}
+                    </li>
+                    <li class="list-group-item">
+                      Fat {{ recipeTotals.fat }} g
+                    </li>
+                    <li class="list-group-item">
+                      Carbohydrate {{ recipeTotals.carbs }} g
+                    </li>
+                    <li class="list-group-item">
+                      Protein {{ recipeTotals.protein }} g
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

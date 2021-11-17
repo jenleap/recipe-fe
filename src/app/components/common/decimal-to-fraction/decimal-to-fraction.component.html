@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-start">
+    <mat-form-field>
+        <input 
+            matInput 
+            type="number"
+            [(ngModel)]="wholeNumber" 
+            (ngModelChange)="onChanged()"/>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select
+            [(ngModel)]="decimalNumber" 
+            (ngModelChange)="onChanged()">
+            <mat-option *ngFor="let f of fractionArray" [value]="f.value">
+                {{ f.label }}
+            </mat-option>
+        </mat-select> 
+    </mat-form-field>   
+</div>
